@@ -10,17 +10,28 @@
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div class="card input-field col s12">
+	<div class="card input-field col s6">
 		<form  action="/class" method="post">
-			<center>
-				<button class="waves-effect waves-light btn" type="submit" >Go to Your class</center>>
-	  		</center>
+	  	
+	  		{% if double==True:%}
+	  			<center>
+					 <a class="waves-effect waves-light btn-large" href={{sub1}}>IOT</a>
+					 <a class="waves-effect waves-light btn-large" href="{{sub2}}">MAD</a>
+	  			</center>
+	  		{% else: %}
+	  			<center>
+					<button class="waves-effect waves-light btn-large" type="submit" >Go to Your class</center>
+	  			</center>
+	  		{% endif %}
+	  		
 		</form>
 	</div>
 		<script>
 		  $(document).ready(function(){
 		    $('select').formSelect();
 		  });
+		  M.toast({html:'{{name}}'});
+		 
 		</script>
 
 	</div>

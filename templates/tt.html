@@ -9,9 +9,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 	<style>
-		body,.card
+		body
 		{
 			background:  #34568B;
+			overflow-x:hidden;
 		}
 		table
 		{
@@ -30,7 +31,7 @@
 	</style>
 </head>
 <body>
-	<div class="card input-field col s6">
+	<div class="col s6">
 		<form  action="/class" method="post">
 
 	  			<center>
@@ -40,14 +41,14 @@
 	  	</form>
 	  	<center>
 	  				<h3>TIMETABLE</h3>
-	  				<table class="striped">
+	  				<table class="striped responsive-table">
 	  					<thead>
 	  						<td>DAY</td>
-	  						<td>1[9.00am to 9.45am]</td>
+	  						<td>1[09.00am to 09.45am]</td>
 	  						<td>2[10.00am to 10.45am]</td>
 	  						<td>3[11.15am to 12.00pm]</td>
-	  						<td>4[12.15pm to 1.00pm]</td>
-	  						<td>5[2.00pm to 2.45pm]</td>
+	  						<td>4[12.15pm to 01.00pm]</td>
+	  						<td>5[02.15pm to 03.00pm]</td>
 	  					</thead><br>
 	  					<tbody>
 	  						<tr>
@@ -106,4 +107,3 @@
 	</div>
 </body>
 </html>
-

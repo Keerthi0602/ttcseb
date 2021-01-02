@@ -24,31 +24,28 @@ def home():
     global Current_Period
     global Current_Class_Link
     Current_Class_Link = "/"
-    Current_Class_Link1 = "/"
-    Current_Class_Link2 = "/"
     Current_hour = now.hour
     Current_minute = now.minute
     Current_day = now.today().isoweekday()
-    Day_List = [1, 2, 3, 4, 5]
+    Day_List = [1, 2, 3, 4, 5, 6]
     Day = {"1": "Monday", "2": "Tuesday",
            "3": "Wednesday", "4": "Thursday", "5": "Friday"}
-    Subject_Link_List = {"TQM": "https://meet.google.com/lookup/bsfyy3ca5f",
-                         "ML": "https://meet.google.com/lookup/dtukxqgoiu",
-                         "MC": "https://meet.google.com/lookup/aso4v7rnf6",
-                         "ST": "https://meet.google.com/lookup/bsczu3muct",
-                         "E-Commerce": "https://meet.google.com/lookup/cmifbfu4jh",
-                         "MAD": "https://meet.google.com/lookup/cdwdmb7kup",
-                         "IOT": "https://meet.google.com/lookup/d7c7jiycso"}
-    Monday = {"First": "IOT/MAD", "Second": "ML",
-              "Third": "MC", "Fourth": "E-Commerce", "Fifth": "ST"}
-    Tuesday = {"First": "ST", "Second": "E-Commerce",
-               "Third": "MC", "Fourth": "ML", "Fifth": "IOT/MAD"}
-    Wednesday = {"First": "E-Commerce", "Second": "ST",
-                 "Third": "TQM", "Fourth": "MC", "Fifth": "ML"}
-    Thursday = {"First": "ML", "Second": "MC",
-                "Third": "ST", "Fourth": "IOT/MAD", "Fifth": "TQM"}
-    Friday = {"First": "ML", "Second": "IOT/MAD",
-              "Third": "E-Commerce", "Fourth": "TQM", "Fifth": "MC"}
+    Subject_Link_List = {"PE": "https://meet.google.com/lookup/fss2xwvboq",
+                         "BEA": "https://meet.google.com/lookup/gkdm57btgy",
+                         "SQA": "https://meet.google.com/lookup/aaclg4o7su",
+                         "ED": "FREE",
+                         "SPM": "https://meet.google.com/ifc-eshv-ffp",
+                         }
+    Monday = {"First": "PE", "Second": "BEA",
+              "Third": "SPM", "Fourth": "ED", "Fifth": "SQA"}
+    Tuesday = {"First": "SPM", "Second": "PE",
+               "Third": "SQA", "Fourth": "BEA", "Fifth": "ED"}
+    Wednesday = {"First": "SPM", "Second": "ED",
+                 "Third": "BEA", "Fourth": "SQA", "Fifth": "PE"}
+    Thursday = {"First": "BEA", "Second": "SQA",
+                "Third": "SPM", "Fourth": "PE", "Fifth": "ED"}
+    Friday = {"First": "SQA", "Second": "ED",
+              "Third": "PE", "Fourth": "SPM", "Fifth": "BEA"}
     Start_Hour_Limit = 8
     Start_Minute_Limit1 = 45
     Start_Minute_Limit2 = 00
@@ -60,7 +57,9 @@ def home():
     End_Minute1 = 00
     End_Minute2 = 45
     if Current_day in Day_List:
-        if (Current_hour < Start_Hour_Limit) or (Current_hour == Start_Hour_Limit and Current_minute < Start_Minute_Limit1):
+        if Current_day == 6:
+            return render_template('tt.html', sub="https://meet.google.com/lookup/fuiwflhayp", name="PROJECT", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
+        elif (Current_hour < Start_Hour_Limit) or (Current_hour == Start_Hour_Limit and Current_minute < Start_Minute_Limit1):
             return render_template('tt.html', name="Your Class starts at 9.00 AM", double=False)
         else:
             if (Current_hour == First_Period_time and Current_minute <= End_Minute2) or (Current_hour == First_Period_time - 1 and Current_minute >= Start_Minute_Limit1):
@@ -79,11 +78,14 @@ def home():
                 return render_template('tt.html', name="Your Classes Completed,Hapieee Mood Nsoyy !!!", double=False)
             Day_Call = Day.get(str(Current_day))
             Subject = eval(Day_Call).get(Current_Period)
-            if "/" in Subject:
+            """if "/" in Subject:
                 Sub_Split = re.split("/", Subject)
                 Current_Class_Link1 = Subject_Link_List.get(Sub_Split[0])
                 Current_Class_Link2 = Subject_Link_List.get(Sub_Split[1])
                 return render_template('tt.html', sub1=Current_Class_Link1, sub2=Current_Class_Link2, name=Subject, double=True)
+            else:"""
+            if Subject == "ED":
+                return render_template('tt.html', name="FREE PERIOD", double=False)
             else:
                 Current_Class_Link = Subject_Link_List.get(Subject)
                 return render_template('tt.html', sub=Current_Class_Link, name=Subject, double=False)

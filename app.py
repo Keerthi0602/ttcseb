@@ -60,7 +60,7 @@ def home():
         if Current_day == 6:
             return render_template('tt.html', sub="https://meet.google.com/lookup/fuiwflhayp", name="PROJECT", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
         elif (Current_hour < Start_Hour_Limit) or (Current_hour == Start_Hour_Limit and Current_minute < Start_Minute_Limit1):
-            return render_template('tt.html', name="Your Class starts at 9.00 AM", double=False)
+            return render_template('tt.html', name="Your Class starts at 9.00 AM", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
         else:
             if (Current_hour == First_Period_time and Current_minute <= End_Minute2) or (Current_hour == First_Period_time - 1 and Current_minute >= Start_Minute_Limit1):
                 Current_Period = "First"
@@ -73,9 +73,9 @@ def home():
             elif (Current_hour == Fifth_Period_time and Current_minute >= End_Minute1) or (Current_hour == Fourth_Period_time + 1 and Current_minute > End_Minute2):
                 Current_Period = "Fifth"
             elif (Current_hour > Fourth_Period_time and Current_minute < End_Minute2):
-                return render_template('tt.html', name="Lunch Time,Eat Heavily! Sleep Happily:)", double=False)
+                return render_template('tt.html', name="Lunch Time,Eat Heavily! Sleep Happily:)", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
             else:
-                return render_template('tt.html', name="Your Classes Completed,Hapieee Mood Nsoyy !!!", double=False)
+                return render_template('tt.html', name="Your Classes Completed,Hapieee Mood Nsoyy !!!", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
             Day_Call = Day.get(str(Current_day))
             Subject = eval(Day_Call).get(Current_Period)
             """if "/" in Subject:
@@ -85,12 +85,12 @@ def home():
                 return render_template('tt.html', sub1=Current_Class_Link1, sub2=Current_Class_Link2, name=Subject, double=True)
             else:"""
             if Subject == "ED":
-                return render_template('tt.html', name="FREE PERIOD", double=False)
+                return render_template('tt.html', name="FREE PERIOD", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
             else:
                 Current_Class_Link = Subject_Link_List.get(Subject)
-                return render_template('tt.html', sub=Current_Class_Link, name=Subject, double=False)
+                return render_template('tt.html', sub=Current_Class_Link, name=Subject, double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
     else:
-        return render_template('tt.html', name="No Worries Enjoyyy Your Holidays", double=False)
+        return render_template('tt.html', name="No Worries Enjoyyy Your Holidays", double=False, Monday=Monday, Tuesday=Tuesday, Wednesday=Wednesday, Thursday=Thursday, Friday=Friday)
 
 
 if __name__ == '__main__':

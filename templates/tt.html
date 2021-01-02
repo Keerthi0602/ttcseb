@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TT</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+	<style>
+		body,.card
+		{
+			background:  #34568B;
+		}
+		table
+		{
+			margin:20px;
+		}
+		thead
+		{
+			font-weight:bold;
+		}
+		td
+		{
+			padding:5px;
+			font-size:25px;
+			font-family:serif;
+		}
+	</style>
+</head>
+<body>
+	<div class="card input-field col s6">
+		<form  action="/class" method="post">
+
+	  			<center>
+	  				<a class="waves-effect waves-light btn-large" href="{{sub}}">GO TO YOUR CLASS</a>
+	  				<a class="waves-effect waves-light btn-large" href="https://classroom.google.com/u">GO TO YOUR CLASSROOM</a>
+	  			</center>	
+	  	</form>
+	  	<center>
+	  				<h3>TIMETABLE</h3>
+	  				<table class="striped">
+	  					<thead>
+	  						<td>DAY</td>
+	  						<td>1[9.00am to 9.45am]</td>
+	  						<td>2[10.00am to 10.45am]</td>
+	  						<td>3[11.15am to 12.00pm]</td>
+	  						<td>4[12.15pm to 1.00pm]</td>
+	  						<td>5[2.00pm to 2.45pm]</td>
+	  					</thead><br>
+	  					<tbody>
+	  						<tr>
+		  						<td>MONDAY</td>
+		  						<td>{{Monday.First}}</td>
+		  						<td>{{Monday.Second}}</td>
+		  						<td>{{Monday.Third}}</td>
+		  						<td>{{Monday.Fourth}}</td>
+		  						<td>{{Monday.Fifth}}</td>
+		  					</tr>
+		  					<tr>
+		  						<td>TUESDAY</td>
+								<td>{{Tuesday.First}}</td>
+								<td>{{Tuesday.Second}}</td>
+								<td>{{Tuesday.Third}}</td>
+								<td>{{Tuesday.Fourth}}</td>
+								<td>{{Tuesday.Fifth}}</td>
+								
+							</tr>
+							<tr>
+								<td>WEDNESDAY</td>
+								<td>{{Wednesday.First}}</td>
+								<td>{{Wednesday.Second}}</td>
+								<td>{{Wednesday.Third}}</td>
+								<td>{{Wednesday.Fourth}}</td>
+								<td>{{Wednesday.Fifth}}</td>
+							</tr>
+							<tr>
+								<td>THURSDAY</td>
+								<td>{{Thursday.First}}</td>
+								<td>{{Thursday.Second}}</td>
+								<td>{{Thursday.Third}}</td>
+								<td>{{Thursday.Fourth}}</td>
+								<td>{{Thursday.Fifth}}</td>
+							</tr>
+							<tr>
+								<td>FRIDAY</td>
+								<td>{{Friday.First}}</td>
+								<td>{{Friday.Second}}</td>
+								<td>{{Friday.Third}}</td>
+								<td>{{Friday.Fourth}}</td>
+								<td>{{Friday.Fifth}}</td>
+		  					</tr>
+	  					</tbody>
+	  				</table>
+	  			</center>
+	</div>
+		<script>
+		  $(document).ready(function(){
+		    $('select').formSelect();
+		  });
+		  M.toast({html:'{{name}}'});
+		 
+		</script>
+
+	</div>
+</body>
+</html>
 
